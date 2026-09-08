@@ -86,3 +86,16 @@ header h1 {
   background: #0070f3;
   color: #ffffff;
 }
+
+/* 結果画面の画像スタイル */
+.result-image-wrap {
+  margin: 16px 0 20px;
+  width: 100%;
+}
+
+.result-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
