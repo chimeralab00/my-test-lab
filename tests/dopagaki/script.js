@@ -1,4 +1,4 @@
-// 設問データ（質問文と選択肢ごとのスコア）
+// 1. 設問データ
 const questions = [
   {
     text: "朝起きて最初にすることは？",
@@ -33,7 +33,7 @@ const questionEl = document.getElementById("question-text");
 const optionsEl = document.getElementById("options-container");
 const progressEl = document.getElementById("progress");
 
-// 質問の描画
+// 2. 質問の描画関数
 function renderQuestion() {
   const current = questions[currentIndex];
   progressEl.textContent = `質問 ${currentIndex + 1} / ${questions.length}`;
@@ -49,7 +49,7 @@ function renderQuestion() {
   });
 }
 
-// 回答処理・画面遷移
+// 3. 回答処理・結果分岐
 function handleAnswer(score) {
   totalScore += score;
   currentIndex++;
@@ -57,7 +57,6 @@ function handleAnswer(score) {
   if (currentIndex < questions.length) {
     renderQuestion();
   } else {
-    // 判定タイプの決定
     let resultType = "C";
     let targetPage = "result-c.html";
 
@@ -69,7 +68,6 @@ function handleAnswer(score) {
       targetPage = "result-b.html";
     }
 
-    // 診断結果をLocalStorageに保存
     const resultSummary = {
       testId: "dopagaki",
       testTitle: "ドパガキ度診断",
@@ -79,7 +77,9 @@ function handleAnswer(score) {
     };
     localStorage.setItem("result_dopagaki", JSON.stringify(resultSummary));
 
-    // 結果ページへ遷移
     window.location.href = targetPage;
   }
 }
+
+// 4. 初回実行（これがないと「読み込み中...」のまま止まります）
+renderQuestion();
