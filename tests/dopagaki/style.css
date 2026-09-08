@@ -66,7 +66,23 @@ header h1 {
   text-align: left;
 }
 
+/* 修正前:
 .option-btn:hover {
+  background: #0070f3;
+  color: #ffffff;
+}
+*/
+
+/* 修正後: マウス操作ができる端末（PC）のみホバー色を適用し、スマホのフォーカス残り（残像）を防ぐ */
+@media (hover: hover) and (pointer: fine) {
+  .option-btn:hover {
+    background: #0070f3;
+    color: #ffffff;
+  }
+}
+
+/* タップした瞬間だけ色を変える */
+.option-btn:active {
   background: #0070f3;
   color: #ffffff;
 }
