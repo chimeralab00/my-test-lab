@@ -44,7 +44,10 @@ function renderQuestion() {
     const btn = document.createElement("button");
     btn.className = "option-btn";
     btn.textContent = opt.label;
-    btn.addEventListener("click", () => handleAnswer(opt.score));
+    btn.addEventListener("click", () => {
+      btn.blur(); // ← この1行を追加（フォーカスを外して青色の引き継ぎを防止）
+      handleAnswer(opt.score);
+    });
     optionsEl.appendChild(btn);
   });
 }
