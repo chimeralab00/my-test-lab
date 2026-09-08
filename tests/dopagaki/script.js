@@ -57,19 +57,29 @@ function handleAnswer(score) {
   if (currentIndex < questions.length) {
     renderQuestion();
   } else {
-    // 診断結果をブラウザのLocalStorageに保存（将来のマイページ連携用）
+    // 判定タイプの決定
+    let resultType = "C";
+    let targetPage = "result-c.html";
+
+    if (totalScore >= 7) {
+      resultType = "A";
+      targetPage = "result-a.html";
+    } else if (totalScore >= 3) {
+      resultType = "B";
+      targetPage = "result-b.html";
+    }
+
+    // 診断結果をLocalStorageに保存
     const resultSummary = {
       testId: "dopagaki",
       testTitle: "ドパガキ度診断",
       score: totalScore,
+      resultType: resultType,
       completedAt: new Date().toISOString()
     };
     localStorage.setItem("result_dopagaki", JSON.stringify(resultSummary));
 
-    // 結果ページへ遷移（まずはテスト用にresult-a.htmlへ飛ばします）
-    window.location.href = "result-a.html";
+    // 結果ページへ遷移
+    window.location.href = targetPage;
   }
 }
-
-// 初回実行
-renderQuestion();
