@@ -5,19 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>診断結果：そこそこドパガキタイプ｜ドパガキ度診断</title>
   
-  <!-- OGP基本設定 -->
+  <!-- OGP基本設定（※SNSの仕様上、metaタグ内のみ絶対URLが必要です） -->
   <meta property="og:title" content="私のドパガキ度は【中程度（そこそこ予備軍）】でした！">
   <meta property="og:description" content="退屈になるとついスマホを触ってしまうレベル。あなたもチェック！">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://chimeralab00.github.io/my-test-lab/tests/dopagaki/result-b.html">
-  <meta property="og:image" content="https://chimeralab00.github.io/my-test-lab/tests/dopagaki/img/ogp-b.png">
+  <meta property="og:image" content="https://chimeralab00.github.io/my-test-lab/tests/dopagaki/img/ogp-b.webp">
   
   <!-- X（旧Twitter）カード設定 -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="私のドパガキ度は【中程度（そこそこ予備軍）】でした！">
   <meta name="twitter:description" content="退屈になるとついスマホを触ってしまうレベル。あなたもチェック！">
-  <meta name="twitter:image" content="https://chimeralab00.github.io/my-test-lab/tests/dopagaki/img/ogp-b.png">
+  <meta name="twitter:image" content="https://chimeralab00.github.io/my-test-lab/tests/dopagaki/img/ogp-b.webp">
   
+  <!-- 相対パスで読み込み（フォルダ移動しても壊れない） -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -26,19 +27,18 @@
       <p style="color: #f59e0b; font-weight: bold; font-size: 0.9rem;">DIAGNOSIS RESULT</p>
       <h1 style="margin: 12px 0 16px; font-size: 1.6rem;">そこそこドパガキタイプ</h1>
 
-      <!-- 画面内に表示するイメージ画像 -->
+      <!-- 完全相対パス：フォルダ位置が変わってもそのまま表示される -->
       <div class="result-image-wrap">
-        <img src="img/ogp-b.png" alt="そこそこドパガキタイプ" class="result-img">
+        <img src="img/ogp-b.webp" alt="そこそこドパガキタイプ" class="result-img">
       </div>
 
       <p style="margin-bottom: 24px; line-height: 1.6; color: #444; font-size: 0.95rem;">
         現代人として標準的なレベルですが、ふとしたスキマ時間についショート動画やSNSを巡回しがち。意識して画面から目を離す時間を作ると集中力が戻ります。
       </p>
 
-      <!-- X（Twitter）シェアボタン -->
+      <!-- シェアボタン（hrefは下のJSで自動生成するため空にしておく） -->
       <a id="share-btn" class="option-btn" style="display: block; text-align: center; background: #000; color: #fff; border: none; text-decoration: none; margin-bottom: 16px;" 
-         href="https://twitter.com/intent/tweet?text=私のドパガキ度は【そこそこドパガキ】でした！%0a%23ドパガキ度診断%0a&url=https://chimeralab00.github.io/my-test-lab/tests/dopagaki/result-b.html" 
-         target="_blank" rel="noopener">
+         href="#" target="_blank" rel="noopener">
         結果を画像付きでXにポスト
       </a>
 
@@ -47,5 +47,13 @@
       </div>
     </section>
   </main>
+
+  <script>
+    // 現在アクセスしているページのURLを自動取得してシェアリンクを作成
+    // ディレクトリやドメインが変わっても修正不要
+    const currentUrl = encodeURIComponent(window.location.href);
+    const shareText = encodeURIComponent("私のドパガキ度は【そこそこドパガキ】でした！\n#ドパガキ度診断\n");
+    document.getElementById("share-btn").href = `https://twitter.com/intent/tweet?text=${shareText}&url=${currentUrl}`;
+  </script>
 </body>
 </html>
