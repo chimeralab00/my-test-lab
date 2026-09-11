@@ -1,20 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const card = document.getElementById("quiz-card");
-  if (!card) return;
-
-  // 1. 診断画面（設問回答中）の共通ヘッダー：トップへ戻るボタンを先頭に挿入
+  // 1. 診断画面：枠の外（body直下）に固定ボタンを自動挿入
   const navHeader = document.getElementById("test-nav-header");
   if (navHeader) {
-    navHeader.innerHTML = `
-      <div style="margin-bottom: 12px;">
-        <a href="../../" style="color: #94a3b8; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
-          ← トップへ戻る
-        </a>
-      </div>
-    `;
+    const fixedBtn = document.createElement("a");
+    fixedBtn.href = "../../";
+    fixedBtn.className = "fixed-top-back-btn";
+    fixedBtn.innerHTML = "<span>←</span> <span>トップへ</span>";
+    document.body.appendChild(fixedBtn);
+    navHeader.remove(); // 枠内のプレースホルダーは削除
   }
 
-  // 2. 結果画面の共通フッター：もう一度診断する ＆ 他の診断を見る リンクを生成
+  // 2. 結果画面のフッター生成
   const resultFooter = document.getElementById("test-result-footer");
   if (resultFooter) {
     resultFooter.innerHTML = `
