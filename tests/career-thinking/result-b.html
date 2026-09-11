@@ -5,18 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>診断結果：直感・創発型（クリエイタータイプ）｜適職・思考特性診断</title>
   
+  <!-- OGP基本設定 -->
   <meta property="og:title" content="私の思考特性は【直感・創発型（クリエイタータイプ）】でした！">
   <meta property="og:description" content="ゼロから新しい価値や切り口を生み出す発想力の持ち主。あなたも診断！">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://chimeralab00.github.io/my-test-lab/tests/career-thinking/result-b.html">
   <meta property="og:image" content="https://chimeralab00.github.io/my-test-lab/tests/career-thinking/img/ogp-b.webp">
   
+  <!-- X（旧Twitter）カード設定 -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="私の思考特性は【直感・創発型（クリエイタータイプ）】でした！">
   <meta name="twitter:description" content="ゼロから新しい価値や切り口を生み出す発想力の持ち主。あなたも診断！">
   <meta name="twitter:image" content="https://chimeralab00.github.io/my-test-lab/tests/career-thinking/img/ogp-b.webp">
 
-  <link rel="stylesheet" href="style.css">
+  <!-- 共通CSS -->
+  <link rel="stylesheet" href="../../assets/common.css">
 </head>
 <body>
   <main class="container">
@@ -24,6 +27,7 @@
       <p style="color: #06b6d4; font-weight: bold; font-size: 0.9rem;">DIAGNOSIS RESULT</p>
       <h1 style="margin: 12px 0 16px; font-size: 1.5rem;">直感・創発型（クリエイタータイプ）</h1>
 
+      <!-- 結果画像 -->
       <div class="result-image-wrap">
         <img src="img/ogp-b.webp" alt="直感・創発型" class="result-img">
       </div>
@@ -37,28 +41,17 @@
         新規事業企画、コンテンツ制作、デザイン、コピーライティング、研究開発（R&D）
       </div>
 
-      <a id="share-btn" class="option-btn" style="display: block; text-align: center; background: #000; color: #fff; border: none; text-decoration: none; margin-bottom: 16px;" 
+      <!-- シェアボタン -->
+      <a id="share-btn" class="share-btn-primary" 
+         data-share-text="私の思考特性は【直感・創発型（クリエイタータイプ）】でした！&#10;#適職思考特性診断 #ChimeraLab" 
          href="#" target="_blank" rel="noopener">
         結果を画像付きでXにポスト
       </a>
 
-      <!-- ナビゲーションリンク -->
-      <div style="display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: 8px;">
-        <a href="index.html" style="color: #64748b; font-size: 0.88rem; text-decoration: underline;">
-          もう一度診断する
-        </a>
-        <span style="color: #cbd5e1;">|</span>
-        <a href="../../" style="color: #4f46e5; font-size: 0.88rem; font-weight: 600; text-decoration: none;">
-          他の診断を見る（トップへ）
-        </a>
-      </div>
+      <!-- 共通フッター（自動挿入） -->
+      <div id="test-result-footer"></div>
     </section>
   </main>
-
-  <script>
-    const currentUrl = encodeURIComponent(window.location.href);
-    const shareText = encodeURIComponent("私の思考特性は【直感・創発型（クリエイタータイプ）】でした！\n#適職思考特性診断 #ChimeraLab\n");
-    document.getElementById("share-btn").href = `https://twitter.com/intent/tweet?text=${shareText}&url=${currentUrl}`;
-  </script>
+  <script src="../../assets/common.js"></script>
 </body>
 </html>
