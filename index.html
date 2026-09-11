@@ -2,10 +2,161 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>テストサイト</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chimera Lab - 診断・心理テスト研究所</title>
+  
+  <meta property="og:title" content="Chimera Lab - 診断・心理テスト研究所">
+  <meta property="og:description" content="ドパガキ度診断をはじめ、様々な心理テストや自己分析ツールを公開中！">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chimeralab00.github.io/my-test-lab/">
+  <meta name="twitter:card" content="summary">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    }
+
+    body {
+      background-color: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+      padding: 24px 16px 60px;
+    }
+
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 32px;
+      padding-top: 16px;
+    }
+
+    header h1 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 0.95rem;
+      color: #64748b;
+    }
+
+    .test-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* 診断カード */
+    .test-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+      display: block;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .test-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        border-color: #cbd5e1;
+      }
+    }
+
+    .badge-hot {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background-color: #fef2f2;
+      color: #ef4444;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      margin-bottom: 8px;
+    }
+
+    .test-card h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #0f172a;
+    }
+
+    .test-card p {
+      font-size: 0.88rem;
+      color: #64748b;
+      margin-bottom: 12px;
+    }
+
+    .card-footer {
+      font-size: 0.8rem;
+      color: #2563eb;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+    }
+
+    /* 近日公開カード（準備中用枠） */
+    .test-card.coming-soon {
+      opacity: 0.6;
+      background: #f1f5f9;
+      border-style: dashed;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 0.8rem;
+      color: #94a3b8;
+    }
+  </style>
 </head>
 <body>
-  <h1>診断ポータル開発スタート！</h1>
-  <p>ここから診断ツールを作っていきます。</p>
+  <div class="container">
+    <header>
+      <h1>Chimera Lab</h1>
+      <p>現代人のための心理・行動診断ツール</p>
+    </header>
+
+    <main class="test-list">
+      <!-- 診断 1: ドパガキ度診断 -->
+      <a href="tests/dopagaki/" class="test-card">
+        <span class="badge-hot">POPULAR</span>
+        <h2>ドパガキ度診断</h2>
+        <p>あなたの脳はスマホやショート動画の刺激に焼かれていませんか？全7問で依存傾向を判定します。</p>
+        <div class="card-footer">
+          診断をスタートする →
+        </div>
+      </a>
+
+      <!-- 準備中カード（枠組みのサンプル） -->
+      <div class="test-card coming-soon">
+        <h2>適職・思考特性診断</h2>
+        <p>近日公開予定。直感的な質問からあなたの認知の癖や強みを可視化します。</p>
+        <div class="card-footer" style="color: #64748b;">
+          Coming Soon...
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Chimera Lab. All rights reserved.</p>
+    </footer>
+  </div>
 </body>
 </html>
