@@ -5,20 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>診断結果：脳内クリーン健全タイプ｜ドパガキ度診断</title>
   
-  <!-- OGP基本設定（※SNSの仕様上、metaタグ内のみ絶対URLが必要です） -->
   <meta property="og:title" content="私のドパガキ度は【脳内クリーン健全タイプ（0%）】でした！">
   <meta property="og:description" content="強い刺激に振り回されない無敵のメンタル。あなたも診断してみよう！">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://chimeralab00.github.io/my-test-lab/tests/dopagaki/result-c.html">
   <meta property="og:image" content="https://chimeralab00.github.io/my-test-lab/tests/dopagaki/img/ogp-c.webp">
   
-  <!-- X（旧Twitter）カード設定 -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="私のドパガキ度は【脳内クリーン健全タイプ（0%）】でした！">
   <meta name="twitter:description" content="強い刺激に振り回されない無敵のメンタル。あなたも診断してみよう！">
   <meta name="twitter:image" content="https://chimeralab00.github.io/my-test-lab/tests/dopagaki/img/ogp-c.webp">
   
-  <!-- 相対パスで読み込み（フォルダ移動しても壊れない） -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -27,7 +24,6 @@
       <p style="color: #10b981; font-weight: bold; font-size: 0.9rem;">DIAGNOSIS RESULT</p>
       <h1 style="margin: 12px 0 16px; font-size: 1.6rem;">脳内クリーン健全タイプ</h1>
 
-      <!-- 完全相対パス：フォルダ位置が変わってもそのまま表示される -->
       <div class="result-image-wrap">
         <img src="img/ogp-c.webp" alt="脳内クリーン健全タイプ" class="result-img">
       </div>
@@ -36,23 +32,27 @@
         素晴らしい自制心です。退屈や余白の時間を楽しむ余裕があり、ドーパミンの過剰刺激に脳が焼かれていません。この調子で自分のペースを維持しましょう。
       </p>
 
-      <!-- シェアボタン（hrefは下のJSで自動生成するため空にしておく） -->
       <a id="share-btn" class="option-btn" style="display: block; text-align: center; background: #000; color: #fff; border: none; text-decoration: none; margin-bottom: 16px;" 
          href="#" target="_blank" rel="noopener">
         結果を画像付きでXにポスト
       </a>
 
-      <div>
-        <a href="index.html" style="color: #666; font-size: 0.9rem; text-decoration: underline;">もう一度診断する</a>
+      <!-- ナビゲーションリンク -->
+      <div style="display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: 8px;">
+        <a href="index.html" style="color: #64748b; font-size: 0.88rem; text-decoration: underline;">
+          もう一度診断する
+        </a>
+        <span style="color: #cbd5e1;">|</span>
+        <a href="../../" style="color: #4f46e5; font-size: 0.88rem; font-weight: 600; text-decoration: none;">
+          他の診断を見る（トップへ）
+        </a>
       </div>
     </section>
   </main>
 
   <script>
-    // 現在アクセスしているページのURLを自動取得してシェアリンクを作成
-    // ディレクトリやドメインが変わっても修正不要
     const currentUrl = encodeURIComponent(window.location.href);
-    const shareText = encodeURIComponent("私のドパガキ度は【脳内クリーン健全タイプ】でした！\n#ドパガキ度診断\n");
+    const shareText = encodeURIComponent("私のドパガキ度は【脳内クリーン健全タイプ】でした！\n#ドパガキ度診断 #ChimeraLab\n");
     document.getElementById("share-btn").href = `https://twitter.com/intent/tweet?text=${shareText}&url=${currentUrl}`;
   </script>
 </body>
