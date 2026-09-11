@@ -4,35 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ドパガキ度診断｜Chimera Lab</title>
-  <meta name="description" content="全7問であなたの脳がスマホやショート動画の刺激にどれくらい焼かれているかを判定します。">
-
-  <meta property="og:title" content="ドパガキ度診断｜Chimera Lab">
-  <meta property="og:description" content="全7問であなたのドパガキ度をチェック！">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://chimeralab00.github.io/my-test-lab/tests/dopagaki/">
-  <meta name="twitter:card" content="summary">
-
-  <link rel="stylesheet" href="style.css">
+  <!-- 共通CSSを読み込み -->
+  <link rel="stylesheet" href="../../assets/common.css">
 </head>
 <body>
   <main class="container">
     <section id="quiz-card">
-      <!-- トップへ戻るリンク -->
-      <div style="margin-bottom: 12px;">
-        <a href="../../" style="color: #94a3b8; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
-          ← トップへ戻る
-        </a>
-      </div>
+      <!-- 共通JSがここに戻るボタンを自動生成 -->
+      <div id="test-nav-header"></div>
 
       <div class="card-header">
         <p id="progress" class="progress-text">質問 1 / 7</p>
         <h1 id="question-text" class="question-text">読み込み中…</h1>
       </div>
-      <div id="options-container" class="options-group">
-        <!-- JSで動的生成 -->
-      </div>
+      <div id="options-container" class="options-group"></div>
     </section>
   </main>
+  
+  <!-- 共通JS & 診断ロジック -->
+  <script src="../../assets/common.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
