@@ -3,27 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ドパガキ度診断｜あなたの依存度を簡単チェック</title>
-  <meta name="description" content="簡単な質問に答えるだけであなたのドパガキ度を判定します。">
-  <!-- 共通OGP設定 -->
-  <meta property="og:title" content="ドパガキ度診断">
-  <meta property="og:description" content="簡単な質問に答えてドパガキ度をチェック！">
+  <title>ドパガキ度診断｜Chimera Lab</title>
+  <meta name="description" content="全7問であなたの脳がスマホやショート動画の刺激にどれくらい焼かれているかを判定します。">
+
+  <meta property="og:title" content="ドパガキ度診断｜Chimera Lab">
+  <meta property="og:description" content="全7問であなたのドパガキ度をチェック！">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chimeralab00.github.io/my-test-lab/tests/dopagaki/">
+  <meta name="twitter:card" content="summary">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="container">
-    <header>
-      <h1>ドパガキ度診断</h1>
-      <p id="progress">質問 1 / 3</p>
-    </header>
-
     <section id="quiz-card">
-      <h2 id="question-text">読み込み中...</h2>
-      <div id="options-container" class="options-list"></div>
+      <!-- トップへ戻るリンク -->
+      <div style="margin-bottom: 12px;">
+        <a href="../../" style="color: #94a3b8; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+          ← トップへ戻る
+        </a>
+      </div>
+
+      <div class="card-header">
+        <p id="progress" class="progress-text">質問 1 / 7</p>
+        <h1 id="question-text" class="question-text">読み込み中…</h1>
+      </div>
+      <div id="options-container" class="options-group">
+        <!-- JSで動的生成 -->
+      </div>
     </section>
   </main>
-
   <script src="script.js"></script>
 </body>
 </html>
