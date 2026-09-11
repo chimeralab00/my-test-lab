@@ -1,0 +1,16 @@
+[
+  {
+    "id": "career-thinking",
+    "title": "適職・思考特性診断",
+    "description": "全10問の質問から、あなたの思考の癖と本当にフィットする働き方を4つのタイプから可視化します。",
+    "badge": "NEW",
+    "status": "published"
+  },
+  {
+    "id": "dopagaki",
+    "title": "ドパガキ度診断",
+    "description": "あなたの脳はスマホやショート動画の刺激に焼かれていませんか？全7問で依存傾向を判定します。",
+    "badge": "POPULAR",
+    "status": "published"
+  }
+]
