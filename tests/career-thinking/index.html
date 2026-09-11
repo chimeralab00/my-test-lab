@@ -12,27 +12,27 @@
   <meta property="og:url" content="https://chimeralab00.github.io/my-test-lab/tests/career-thinking/">
   <meta name="twitter:card" content="summary">
 
-  <link rel="stylesheet" href="style.css">
+  <!-- 共通CSSの読み込み -->
+  <link rel="stylesheet" href="../../assets/common.css">
 </head>
 <body>
   <main class="container">
     <section id="quiz-card">
-      <!-- トップへ戻るリンク -->
-      <div style="margin-bottom: 12px;">
-        <a href="../../" style="color: #94a3b8; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
-          ← トップへ戻る
-        </a>
-      </div>
+      <!-- 共通JSがここに戻るリンク（← トップへ戻る）を自動挿入 -->
+      <div id="test-nav-header"></div>
 
       <div class="card-header">
         <p id="progress" class="progress-text">質問 1 / 10</p>
         <h1 id="question-text" class="question-text">読み込み中…</h1>
       </div>
       <div id="options-container" class="options-group">
-        <!-- JSで動的に選択肢ボタンを生成 -->
+        <!-- script.jsが動的に選択肢ボタンを生成 -->
       </div>
     </section>
   </main>
+  
+  <!-- 共通JS ＆ 診断ロジック -->
+  <script src="../../assets/common.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
