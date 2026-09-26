@@ -4,24 +4,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ドパガキ度診断｜Chimera Lab</title>
-  <!-- 共通CSSを読み込み -->
+  <meta name="description" content="全7問であなたの脳がスマホやショート動画の強い刺激にどれくらい焼かれているかを判定します。">
+
+  <!-- OGP基本設定 -->
+  <meta property="og:title" content="ドパガキ度診断｜Chimera Lab">
+  <meta property="og:description" content="全7問であなたのドパガキ度をチェック！脳の刺激中毒レベルを判定します。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chimeralab00.github.io/my-test-lab/tests/dopagaki/">
+  <meta name="twitter:card" content="summary">
+
+  <!-- 共通CSS -->
   <link rel="stylesheet" href="../../assets/common.css">
 </head>
 <body>
   <main class="container">
     <section id="quiz-card">
-      <!-- 共通JSがここに戻るボタンを自動生成 -->
+      <!-- 共通JSが画面左上に「← トップへ」ボタンを自動生成 -->
       <div id="test-nav-header"></div>
 
-      <div class="card-header">
-        <p id="progress" class="progress-text">質問 1 / 7</p>
-        <h1 id="question-text" class="question-text">読み込み中…</h1>
+      <!-- ① 診断の説明（イントロ）画面 -->
+      <div id="intro-view">
+        <span class="intro-badge">DIAGNOSIS</span>
+        <h1 class="intro-title">ドパガキ度診断</h1>
+        <p class="intro-desc">
+          退屈に耐えられず、気づけばスマホを開いてショート動画やSNSを徘徊していませんか？<br>
+          全7問の日常的な行動パターンから、あなたの脳がどれくらい即時的な刺激（ドーパミン）中毒になっているかを3段階で判定します。
+        </p>
+
+        <div class="intro-meta-box">
+          <div class="intro-meta-item">
+            <span class="meta-label">設問数</span>
+            <span class="meta-val">全 7 問</span>
+          </div>
+          <div class="intro-meta-item">
+            <span class="meta-label">目安時間</span>
+            <span class="meta-val">約 1 分</span>
+          </div>
+        </div>
+
+        <button id="start-btn" class="start-btn-primary">診断をはじめる</button>
       </div>
-      <div id="options-container" class="options-group"></div>
+
+      <!-- ② 診断の設問画面（初期状態は非表示） -->
+      <div id="quiz-view" style="display: none;">
+        <div class="card-header">
+          <p id="progress" class="progress-text">質問 1 / 7</p>
+          <h1 id="question-text" class="question-text">読み込み中…</h1>
+        </div>
+        <div id="options-container" class="options-group">
+          <!-- script.jsが動的にボタンを生成 -->
+        </div>
+      </div>
     </section>
   </main>
   
-  <!-- 共通JS & 診断ロジック -->
+  <!-- 共通JS ＆ 診断ロジック -->
   <script src="../../assets/common.js"></script>
   <script src="script.js"></script>
 </body>
