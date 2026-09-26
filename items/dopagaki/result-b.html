@@ -3,51 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>診断結果：そこそこドパガキタイプ｜ドパガキ度診断</title>
-  
+  <title>診断結果：ドパガキ予備軍｜ドパガキ度診断</title>
+  <meta name="description" content="ドパガキ度診断の結果：ドパガキ予備軍（注意レベル）。無意識のスマホチェックが増え、集中力が散漫になり始めている兆候があります。">
+
   <!-- OGP基本設定 -->
-  <meta property="og:title" content="私のドパガキ度は【中程度（そこそこ予備軍）】でした！">
-  <meta property="og:description" content="退屈になるとついスマホを触ってしまうレベル。あなたもチェック！">
+  <meta property="og:title" content="【ドパガキ度診断】結果は「ドパガキ予備軍」でした！">
+  <meta property="og:description" content="ふとした瞬間のスマホチェックが増えていませんか？集中力が削がれ始めている注意レベル！">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://chimeralab00.github.io/my-test-lab/tests/dopagaki/result-b.html">
-  <meta property="og:image" content="https://chimeralab00.github.io/my-test-lab/tests/dopagaki/img/ogp-b.webp">
-  
-  <!-- X（旧Twitter）カード設定 -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="私のドパガキ度は【中程度（そこそこ予備軍）】でした！">
-  <meta name="twitter:description" content="退屈になるとついスマホを触ってしまうレベル。あなたもチェック！">
-  <meta name="twitter:image" content="https://chimeralab00.github.io/my-test-lab/tests/dopagaki/img/ogp-b.webp">
-  
-  <!-- 共通CSSの読み込み -->
+  <meta property="og:url" content="https://chimeraworks00.github.io/tests/items/dopagaki/result-b.html">
+  <meta name="twitter:card" content="summary">
+
+  <!-- 共通CSS -->
   <link rel="stylesheet" href="../../assets/common.css">
 </head>
 <body>
   <main class="container">
-    <section id="quiz-card" style="text-align: center;">
-      <p style="color: #f59e0b; font-weight: bold; font-size: 0.9rem;">DIAGNOSIS RESULT</p>
-      <h1 style="margin: 12px 0 16px; font-size: 1.6rem;">そこそこドパガキタイプ</h1>
+    <section class="result-card">
+      <div id="test-nav-header"></div>
 
-      <!-- 結果画像 -->
-      <div class="result-image-wrap">
-        <img src="img/ogp-b.webp" alt="そこそこドパガキタイプ" class="result-img">
+      <header class="result-header">
+        <span class="result-tag">ドパガキ度：中（注意）</span>
+        <h1 class="result-title">ドパガキ予備軍</h1>
+        <p class="result-lead">無意識にスマホへ手が伸びる頻度が増え、作業の合間に集中が途切れがちです。</p>
+      </header>
+
+      <div class="result-body">
+        <h2 class="section-title">あなたの現状と特徴</h2>
+        <p class="desc-text">
+          仕事や勉強の合間、あるいは手持ち無沙汰なエレベーターの待ち時間などに、特に用事もないのにスマホを取り出してSNSやショート動画を開いていませんか？脳が手軽なドーパミン刺激を求め始めているサインです。
+        </p>
+
+        <h2 class="section-title">アドバイスと対策</h2>
+        <ul class="advice-list">
+          <li><strong>スマホの物理的隔離：</strong> 作業中はスマホを視界に入らない場所や別室に置くだけで、集中力の回復が見込めます。</li>
+          <li><strong>通知の棚卸し：</strong> 緊急性のないアプリのプッシュ通知をオフにし、外部からの割り込み刺激を減らしましょう。</li>
+        </ul>
       </div>
 
-      <p style="margin-bottom: 24px; line-height: 1.6; color: #444; font-size: 0.95rem;">
-        現代人として標準的なレベルですが、ふとしたスキマ時間についショート動画やSNSを巡回しがち。意識して画面から目を離す時間を作ると集中力が戻ります。
-      </p>
-
-      <!-- シェアボタン（共通JSがURLを自動結合） -->
-      <a id="share-btn" class="share-btn-primary" 
-         data-share-text="私のドパガキ度は【そこそこドパガキ】でした！&#10;#ドパガキ度診断 #ChimeraLab" 
-         href="#" target="_blank" rel="noopener">
-        結果を画像付きでXにポスト
-      </a>
-
-      <!-- 共通JSがフッター（もう一度 / 他の診断を見る）を自動描画 -->
-      <div id="test-result-footer"></div>
+      <div class="result-actions">
+        <a id="share-x" href="#" target="_blank" rel="noopener noreferrer" class="btn-share">Xで結果をシェア</a>
+        <a href="index.html" class="btn-retry">もう一度診断する</a>
+      </div>
     </section>
   </main>
-  <!-- 共通JSの読み込み -->
+
   <script src="../../assets/common.js"></script>
 </body>
 </html>
