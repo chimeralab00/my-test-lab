@@ -31,3 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
     shareBtn.href = `https://twitter.com/intent/tweet?text=${shareText}&url=${currentUrl}`;
   }
 });
+
+// 配列をランダムにシャッフルする共通関数（Fisher-Yates法）
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
