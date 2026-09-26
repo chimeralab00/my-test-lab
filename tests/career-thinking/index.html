@@ -12,21 +12,47 @@
   <meta property="og:url" content="https://chimeralab00.github.io/my-test-lab/tests/career-thinking/">
   <meta name="twitter:card" content="summary">
 
-  <!-- 共通CSSの読み込み -->
+  <!-- 共通CSS -->
   <link rel="stylesheet" href="../../assets/common.css">
 </head>
 <body>
   <main class="container">
     <section id="quiz-card">
-      <!-- 共通JSがここに戻るリンク（← トップへ戻る）を自動挿入 -->
+      <!-- 共通JSが左上に「← トップへ」ボタンを自動生成 -->
       <div id="test-nav-header"></div>
 
-      <div class="card-header">
-        <p id="progress" class="progress-text">質問 1 / 10</p>
-        <h1 id="question-text" class="question-text">読み込み中…</h1>
+      <!-- ① 診断の説明（イントロ）画面 -->
+      <div id="intro-view">
+        <span class="intro-badge">DIAGNOSIS</span>
+        <h1 class="intro-title">適職・思考特性診断</h1>
+        <p class="intro-desc">
+          問題に直面したとき、あなたは論理で詰めるタイプ？直感で突破するタイプ？<br>
+          仕事や作業における無意識の思考パターンを全10問から分析し、あなたの強みが最も発揮される働き方・職能タイプを4つから導き出します。
+        </p>
+
+        <div class="intro-meta-box">
+          <div class="intro-meta-item">
+            <span class="meta-label">設問数</span>
+            <span class="meta-val">全 10 問</span>
+          </div>
+          <div class="intro-meta-item">
+            <span class="meta-label">目安時間</span>
+            <span class="meta-val">約 2〜3 分</span>
+          </div>
+        </div>
+
+        <button id="start-btn" class="start-btn-primary">診断をはじめる</button>
       </div>
-      <div id="options-container" class="options-group">
-        <!-- script.jsが動的に選択肢ボタンを生成 -->
+
+      <!-- ② 診断の設問画面（初期は非表示） -->
+      <div id="quiz-view" style="display: none;">
+        <div class="card-header">
+          <p id="progress" class="progress-text">質問 1 / 10</p>
+          <h1 id="question-text" class="question-text">読み込み中…</h1>
+        </div>
+        <div id="options-container" class="options-group">
+          <!-- script.jsが動的に生成 -->
+        </div>
       </div>
     </section>
   </main>
