@@ -1,8 +1,8 @@
 // 全7問の設問データ
-// A: 安定・自律（フラット）
-// B: 献身・共感（サポート）
-// C: 情熱・直感（ロマンス）
-// D: 慎重・観察（パーソナルスペース）
+// A: 安定・自律型（フラットパートナー）
+// B: 献身・共感型（寄り添いサポーター）
+// C: 情熱・直感型（エモーショナルロマンチスト）
+// D: 慎重・観察型（パーソナルスペースガード）
 const questions = [
   {
     text: "理想とするパートナーとの関係性に最も近いものは？",
@@ -76,6 +76,10 @@ const questionEl = document.getElementById("question-text");
 const optionsEl = document.getElementById("options-container");
 const progressEl = document.getElementById("progress");
 
+const introView = document.getElementById("intro-view");
+const quizView = document.getElementById("quiz-view");
+const startBtn = document.getElementById("start-btn");
+
 function renderQuestion() {
   const current = questions[currentIndex];
   progressEl.textContent = `質問 ${currentIndex + 1} / ${questions.length}`;
@@ -135,5 +139,14 @@ function handleAnswer(type) {
   }
 }
 
-// 実行開始
-renderQuestion();
+// 診断開始ボタンのイベント登録
+if (startBtn && introView && quizView) {
+  startBtn.addEventListener("click", () => {
+    introView.style.display = "none";
+    quizView.style.display = "block";
+    renderQuestion();
+  });
+} else {
+  // 説明画面がない場合の後方互換
+  renderQuestion();
+}
