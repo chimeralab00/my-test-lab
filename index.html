@@ -3,68 +3,177 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chimera Lab｜思考・適職・心理の本格Web診断ポータル</title>
-  <meta name="description" content="全10問以内であなたの無意識の傾向、思考パターン、適職、コミュニケーション特性を解き明かすWeb診断ポータルサイトです。">
+  <title>Chimera Lab｜自己理解・思考特性 診断ポータル</title>
+  <meta name="description" content="無意識の思考パターン、デジタル依存度、対人関係の傾向を可視化する無料の自己診断ポータルサイト。">
 
-  <!-- OGP / SNS Meta Tags -->
-  <meta property="og:title" content="Chimera Lab｜思考・適職・心理の本格Web診断ポータル">
-  <meta property="og:description" content="全10問以内であなたの思考パターン、適職、コミュニケーション特性を可視化。">
+  <!-- OGP基本設定 -->
+  <meta property="og:title" content="Chimera Lab｜自己理解・思考特性 診断ポータル">
+  <meta property="og:description" content="無意識の思考パターンや生活習慣を可視化する無料の自己診断ポータル。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://chimeraworks00.github.io/tests/">
   <meta name="twitter:card" content="summary">
 
-  <!-- 共通スタイルシート -->
+  <!-- 共通CSS -->
   <link rel="stylesheet" href="assets/common.css">
+
+  <style>
+    /* トップページ用レイアウト調整（bodyの中央寄せを解除） */
+    body {
+      display: block !important;
+      min-height: 100vh;
+      padding: 40px 16px 60px !important;
+    }
+
+    .portal-container {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .portal-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .portal-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #4f46e5;
+      background: #eef2ff;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+    .portal-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .portal-subtitle {
+      font-size: 0.95rem;
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    /* 診断一覧リスト */
+    .test-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .test-card {
+      display: block;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      transition: all 0.2s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .test-card:hover {
+        border-color: #818cf8;
+        box-shadow: 0 8px 24px rgba(79, 70, 229, 0.08);
+        transform: translateY(-2px);
+      }
+    }
+
+    .test-card-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #4f46e5;
+      background: #eef2ff;
+      padding: 2px 8px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+
+    .test-card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .test-card-desc {
+      font-size: 0.88rem;
+      color: #475569;
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+
+    .test-card-meta {
+      display: flex;
+      gap: 16px;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 0.8rem;
+      color: #94a3b8;
+    }
+  </style>
 </head>
 <body>
-  <div class="portal-wrapper">
+  <div class="portal-container">
     <header class="portal-header">
-      <div class="portal-brand">
-        <span class="brand-tag">CHIMERA WORKS</span>
-        <h1 class="brand-title">Chimera Lab</h1>
-        <p class="brand-subtitle">思考・行動特性・心理の多角的Web診断ポータル</p>
-      </div>
+      <span class="portal-badge">PORTAL</span>
+      <h1 class="portal-title">Chimera Lab</h1>
+      <p class="portal-subtitle">自己理解・認知傾向・思考パターンを可視化する無料診断ツール集</p>
     </header>
 
-    <main class="portal-content">
-      <div class="test-grid">
-        <!-- ドパガキ度診断 -->
-        <article class="test-card">
-          <div class="card-meta">
-            <span class="badge badge-popular">人気</span>
-            <span class="meta-time">約2分 / 全10問</span>
-          </div>
-          <h2 class="test-title">ドパガキ度診断</h2>
-          <p class="test-desc">ショート動画や通知に支配されていませんか？あなたの脳内ドーパミン依存度と集中力の現状を客観的に可視化します。</p>
-          <a href="items/dopagaki/" class="btn-start">診断をはじめる →</a>
-        </article>
+    <main class="test-list">
+      <!-- 診断1：ドパガキ度 -->
+      <a href="items/dopagaki/" class="test-card">
+        <span class="test-card-tag">LIFESTYLE</span>
+        <h2 class="test-card-title">ドパガキ度診断</h2>
+        <p class="test-card-desc">ショート動画やSNSの即時報酬に脳がどれくらい侵食されているかを客観的にチェックします。</p>
+        <div class="test-card-meta">
+          <span>設問数：全 10 問</span>
+          <span>目安：約 2 分</span>
+        </div>
+      </a>
 
-        <!-- 適職・思考特性診断 -->
-        <article class="test-card">
-          <div class="card-meta">
-            <span class="badge badge-standard">定番</span>
-            <span class="meta-time">約3分 / 全10問</span>
-          </div>
-          <h2 class="test-title">適職・思考特性診断</h2>
-          <p class="test-desc">論理か、直感か、実行か、協調か。無意識の思考パターンを分析し、あなたの強みが最も発揮される働き方タイプを導き出します。</p>
-          <a href="items/career-thinking/" class="btn-start">診断をはじめる →</a>
-        </article>
+      <!-- 診断2：適職・思考特性 -->
+      <a href="items/career-thinking/" class="test-card">
+        <span class="test-card-tag">CAREER</span>
+        <h2 class="test-card-title">適職・思考特性診断</h2>
+        <p class="test-card-desc">課題解決や仕事の進め方から、あなたの強みが最も発揮される働き方スタイルを分析します。</p>
+        <div class="test-card-meta">
+          <span>設問数：全 10 問</span>
+          <span>目安：約 3 分</span>
+        </div>
+      </a>
 
-        <!-- 恋愛コミュニケーション傾向診断 -->
-        <article class="test-card">
-          <div class="card-meta">
-            <span class="badge badge-standard">自己分析</span>
-            <span class="meta-time">約1分 / 全7問</span>
-          </div>
-          <h2 class="test-title">恋愛コミュニケーション傾向診断</h2>
-          <p class="test-desc">親しい人との心地よい距離感や、無意識に出てしまうコミュニケーションの癖を全7問から4つのスタイルで分析します。</p>
-          <a href="items/love-style/" class="btn-start">診断をはじめる →</a>
-        </article>
-      </div>
+      <!-- 診断3：恋愛コミュニケーション傾向 -->
+      <a href="items/love-style/" class="test-card">
+        <span class="test-card-tag">RELATIONSHIP</span>
+        <h2 class="test-card-title">恋愛コミュニケーション傾向診断</h2>
+        <p class="test-card-desc">親しい人との心地よい距離感や、無意識に出てしまうコミュニケーションの癖を判定します。</p>
+        <div class="test-card-meta">
+          <span>設問数：全 7 問</span>
+          <span>目安：約 1 分</span>
+        </div>
+      </a>
     </main>
 
-    <footer class="portal-footer">
-      <p>&copy; Chimera Works / Chimera Lab. All rights reserved.</p>
+    <footer class="footer">
+      <p>&copy; Chimera Lab All Rights Reserved.</p>
     </footer>
   </div>
 </body>
