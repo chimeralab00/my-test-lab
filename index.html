@@ -3,71 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chimera Lab - 診断・心理テスト研究所</title>
+  <title>Chimera Lab｜思考・適職・心理の本格Web診断ポータル</title>
+  <meta name="description" content="全10問以内であなたの無意識の傾向、思考パターン、適職、コミュニケーション特性を解き明かすWeb診断ポータルサイトです。">
+
+  <!-- OGP / SNS Meta Tags -->
+  <meta property="og:title" content="Chimera Lab｜思考・適職・心理の本格Web診断ポータル">
+  <meta property="og:description" content="全10問以内であなたの思考パターン、適職、コミュニケーション特性を可視化。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chimeraworks00.github.io/tests/">
+  <meta name="twitter:card" content="summary">
+
+  <!-- 共通スタイルシート -->
   <link rel="stylesheet" href="assets/common.css">
-  <style>
-    /* トップ専用のレイアウト */
-    body { display: block; padding: 40px 16px; min-height: auto; }
-    .portal-container { max-width: 640px; margin: 0 auto; }
-    .portal-header { text-align: center; margin-bottom: 32px; }
-    .test-list { display: flex; flex-direction: column; gap: 16px; }
-    .test-card {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 20px;
-      text-decoration: none;
-      color: inherit;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
-      transition: transform 0.15s ease, border-color 0.15s ease;
-      display: block;
-    }
-    .test-card:hover { transform: translateY(-2px); border-color: #cbd5e1; }
-    .badge {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 9999px;
-      margin-bottom: 8px;
-    }
-    .badge-NEW { background: #e0e7ff; color: #4338ca; }
-    .badge-POPULAR { background: #fef2f2; color: #ef4444; }
-  </style>
 </head>
 <body>
-  <div class="portal-container">
+  <div class="portal-wrapper">
     <header class="portal-header">
-      <h1 style="font-size: 1.8rem; font-weight: 800; color: #0f172a;">Chimera Lab</h1>
-      <p style="color: #64748b; font-size: 0.95rem;">現代人のための心理・行動診断ツール</p>
+      <div class="portal-brand">
+        <span class="brand-tag">CHIMERA WORKS</span>
+        <h1 class="brand-title">Chimera Lab</h1>
+        <p class="brand-subtitle">思考・行動特性・心理の多角的Web診断ポータル</p>
+      </div>
     </header>
 
-    <main id="test-list" class="test-list">
-      <!-- tests.json から自動描画 -->
+    <main class="portal-content">
+      <div class="test-grid">
+        <!-- ドパガキ度診断 -->
+        <article class="test-card">
+          <div class="card-meta">
+            <span class="badge badge-popular">人気</span>
+            <span class="meta-time">約2分 / 全10問</span>
+          </div>
+          <h2 class="test-title">ドパガキ度診断</h2>
+          <p class="test-desc">ショート動画や通知に支配されていませんか？あなたの脳内ドーパミン依存度と集中力の現状を客観的に可視化します。</p>
+          <a href="tests/dopagaki/" class="btn-start">診断をはじめる →</a>
+        </article>
+
+        <!-- 適職・思考特性診断 -->
+        <article class="test-card">
+          <div class="card-meta">
+            <span class="badge badge-standard">定番</span>
+            <span class="meta-time">約3分 / 全10問</span>
+          </div>
+          <h2 class="test-title">適職・思考特性診断</h2>
+          <p class="test-desc">論理か、直感か、実行か、協調か。無意識の思考パターンを分析し、あなたの強みが最も発揮される働き方タイプを導き出します。</p>
+          <a href="tests/career-thinking/" class="btn-start">診断をはじめる →</a>
+        </article>
+
+        <!-- 恋愛コミュニケーション傾向診断 -->
+        <article class="test-card">
+          <div class="card-meta">
+            <span class="badge badge-standard">自己分析</span>
+            <span class="meta-time">約1分 / 全7問</span>
+          </div>
+          <h2 class="test-title">恋愛コミュニケーション傾向診断</h2>
+          <p class="test-desc">親しい人との心地よい距離感や、無意識に出てしまうコミュニケーションの癖を全7問から4つのスタイルで分析します。</p>
+          <a href="tests/love-style/" class="btn-start">診断をはじめる →</a>
+        </article>
+      </div>
     </main>
 
-    <footer style="text-align: center; margin-top: 48px; font-size: 0.8rem; color: #94a3b8;">
-      <p>&copy; 2026 Chimera Lab. All rights reserved.</p>
+    <footer class="portal-footer">
+      <p>&copy; Chimera Works / Chimera Lab. All rights reserved.</p>
     </footer>
   </div>
-
-  <script>
-    fetch('tests.json')
-      .then(res => res.json())
-      .then(data => {
-        const container = document.getElementById('test-list');
-        container.innerHTML = data.map(item => `
-          <a href="tests/${item.id}/" class="test-card">
-            ${item.badge ? `<span class="badge badge-${item.badge}">${item.badge}</span>` : ''}
-            <h2 style="font-size: 1.2rem; font-weight: 700; color: #0f172a; margin-bottom: 6px;">${item.title}</h2>
-            <p style="font-size: 0.88rem; color: #64748b; margin-bottom: 12px;">${item.description}</p>
-            <div style="font-size: 0.8rem; color: #4f46e5; font-weight: 600;">診断をスタートする →</div>
-          </a>
-        `).join('');
-      })
-      .catch(err => {
-        document.getElementById('test-list').innerHTML = '<p>診断一覧を読み込めませんでした。</p>';
-      });
-  </script>
 </body>
 </html>
