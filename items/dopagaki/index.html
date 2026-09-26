@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ドパガキ度診断｜Chimera Lab</title>
-  <meta name="description" content="全7問であなたの脳がスマホやショート動画の強い刺激にどれくらい焼かれているかを判定します。">
+  <meta name="description" content="全10問であなたの脳内ドーパミン依存度と集中力の現状を客観的に可視化します。">
 
   <!-- OGP基本設定 -->
   <meta property="og:title" content="ドパガキ度診断｜Chimera Lab">
-  <meta property="og:description" content="全7問であなたのドパガキ度をチェック！脳の刺激中毒レベルを判定します。">
+  <meta property="og:description" content="全10問であなたの脳内ドーパミン依存度と集中力の現状を客観的に可視化！">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://chimeralab00.github.io/my-test-lab/tests/dopagaki/">
+  <meta property="og:url" content="https://chimeraworks00.github.io/tests/items/dopagaki/">
   <meta name="twitter:card" content="summary">
 
   <!-- 共通CSS -->
@@ -19,7 +19,7 @@
 <body>
   <main class="container">
     <section id="quiz-card">
-      <!-- 共通JSが画面左上に「← トップへ」ボタンを自動生成 -->
+      <!-- 共通JSが左上に「← トップへ」ボタンを自動生成 -->
       <div id="test-nav-header"></div>
 
       <!-- ① 診断の説明（イントロ）画面 -->
@@ -27,18 +27,18 @@
         <span class="intro-badge">DIAGNOSIS</span>
         <h1 class="intro-title">ドパガキ度診断</h1>
         <p class="intro-desc">
-          退屈に耐えられず、気づけばスマホを開いてショート動画やSNSを徘徊していませんか？<br>
-          全7問の日常的な行動パターンから、あなたの脳がどれくらい即時的な刺激（ドーパミン）中毒になっているかを3段階で判定します。
+          ショート動画、SNS通知、手持ち無沙汰な瞬間のスマホチェック……。<br>
+          現代の即時報酬にあなたの脳がどれくらい侵食されているかを全10問で測定します。
         </p>
 
         <div class="intro-meta-box">
           <div class="intro-meta-item">
             <span class="meta-label">設問数</span>
-            <span class="meta-val">全 7 問</span>
+            <span class="meta-val">全 10 問</span>
           </div>
           <div class="intro-meta-item">
             <span class="meta-label">目安時間</span>
-            <span class="meta-val">約 1 分</span>
+            <span class="meta-val">約 2 分</span>
           </div>
         </div>
 
@@ -48,16 +48,16 @@
       <!-- ② 診断の設問画面（初期状態は非表示） -->
       <div id="quiz-view" style="display: none;">
         <div class="card-header">
-          <p id="progress" class="progress-text">質問 1 / 7</p>
+          <p id="progress" class="progress-text">質問 1 / 10</p>
           <h1 id="question-text" class="question-text">読み込み中…</h1>
         </div>
         <div id="options-container" class="options-group">
-          <!-- script.jsが動的にボタンを生成 -->
+          <!-- script.jsが動的に生成 -->
         </div>
       </div>
     </section>
   </main>
-  
+
   <!-- 共通JS ＆ 診断ロジック -->
   <script src="../../assets/common.js"></script>
   <script src="script.js"></script>
