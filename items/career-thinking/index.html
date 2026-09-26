@@ -4,12 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>適職・思考特性診断｜Chimera Lab</title>
-  <meta name="description" content="全10問であなたの思考の癖と本当にフィットする働き方を可視化する無料診断ツールです。">
-  
+  <meta name="description" content="全10問からあなたの無意識の思考パターンを分析し、強みが最も生きる働き方タイプを導き出します。">
+
+  <!-- OGP基本設定 -->
   <meta property="og:title" content="適職・思考特性診断｜Chimera Lab">
-  <meta property="og:description" content="全10問であなたの思考タイプとマッチする働き方を可視化！">
+  <meta property="og:description" content="全10問であなたの思考特性と適職スタイルを分析！">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://chimeralab00.github.io/my-test-lab/tests/career-thinking/">
+  <meta property="og:url" content="https://chimeraworks00.github.io/tests/items/career-thinking/">
   <meta name="twitter:card" content="summary">
 
   <!-- 共通CSS -->
@@ -23,11 +24,11 @@
 
       <!-- ① 診断の説明（イントロ）画面 -->
       <div id="intro-view">
-        <span class="intro-badge">DIAGNOSIS</span>
+        <span class="intro-badge">CAREER</span>
         <h1 class="intro-title">適職・思考特性診断</h1>
         <p class="intro-desc">
-          問題に直面したとき、あなたは論理で詰めるタイプ？直感で突破するタイプ？<br>
-          仕事や作業における無意識の思考パターンを全10問から分析し、あなたの強みが最も発揮される働き方・職能タイプを4つから導き出します。
+          「論理・設計」「直感・発想」「現場・推進」「共感・支援」。<br>
+          仕事や問題解決の場で無意識にとっているアプローチから、あなたの資質に合った環境と適職タイプを特定します。
         </p>
 
         <div class="intro-meta-box">
@@ -37,14 +38,14 @@
           </div>
           <div class="intro-meta-item">
             <span class="meta-label">目安時間</span>
-            <span class="meta-val">約 2〜3 分</span>
+            <span class="meta-val">約 3 分</span>
           </div>
         </div>
 
         <button id="start-btn" class="start-btn-primary">診断をはじめる</button>
       </div>
 
-      <!-- ② 診断の設問画面（初期は非表示） -->
+      <!-- ② 診断の設問画面（初期状態は非表示） -->
       <div id="quiz-view" style="display: none;">
         <div class="card-header">
           <p id="progress" class="progress-text">質問 1 / 10</p>
@@ -56,7 +57,7 @@
       </div>
     </section>
   </main>
-  
+
   <!-- 共通JS ＆ 診断ロジック -->
   <script src="../../assets/common.js"></script>
   <script src="script.js"></script>
