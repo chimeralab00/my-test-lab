@@ -1,59 +1,60 @@
-// 1. 設問データ（全7問 / 1問あたり0〜3点 / 最大21点）
+// 全7問の設問データ
+// スコア: 高いほどドパガキ度が高い (2点 / 1点 / 0点)
 const questions = [
   {
     text: "朝起きて最初にすることは？",
     options: [
-      { label: "スマホを開いてSNSやショート動画を見る", score: 3 },
+      { label: "スマホを開いてSNSやショート動画を見る", score: 2 },
       { label: "アラームを止めて一度二度寝する", score: 1 },
       { label: "カーテンを開けて日光を浴びる", score: 0 }
     ]
   },
   {
-    text: "動画を観るとき、再生速度はどうしている？",
+    text: "動画を見るとき、よくやる行動は？",
     options: [
-      { label: "常に1.5〜2倍速、またはスキップしまくる", score: 3 },
-      { label: "たまに早送りする", score: 1 },
-      { label: "通常速度のまま楽しむ", score: 0 }
+      { label: "1.5倍速以上、または10秒スキップを連打する", score: 2 },
+      { label: "気になる部分だけ飛ばし見する", score: 1 },
+      { label: "等倍で最初から最後までじっくり見る", score: 0 }
     ]
   },
   {
-    text: "少しでも待ち時間や退屈な時間があると？",
+    text: "電車や信号待ちなど、数分のスキマ時間があると？",
     options: [
-      { label: "1秒も耐えられず無意識にスマホを手に取る", score: 3 },
-      { label: "たまにスマホを見る", score: 1 },
-      { label: "ぼーっと景色を眺めたり考え事をする", score: 0 }
+      { label: "無意識にポケットからスマホを取り出している", score: 2 },
+      { label: "通知があれば確認する程度", score: 1 },
+      { label: "ぼーっと外の景色や人間観察をする", score: 0 }
     ]
   },
   {
-    text: "ご飯を食べているときの過ごし方は？",
+    text: "食事中の過ごし方は？",
     options: [
-      { label: "必ず動画や配信、SNSを見ながら食べる", score: 3 },
-      { label: "たまにスマホを見ながら食べる", score: 1 },
-      { label: "食事や会話に集中してスマホは見ない", score: 0 }
+      { label: "片手にスマホを持ち、画面を見ながら食べる", score: 2 },
+      { label: "テレビや動画を流し見しながら食べる", score: 1 },
+      { label: "食事そのものの味や会話に集中して食べる", score: 0 }
     ]
   },
   {
-    text: "長文の記事や本を読むときの集中力は？",
+    text: "「やるべき作業」があるのに、別のことを始めてしまう頻度は？",
     options: [
-      { label: "数行読んだだけで飽きて別のアプリを開く", score: 3 },
-      { label: "斜め読みなら最後まで目を通せる", score: 1 },
-      { label: "まとまった時間を取ってじっくり読める", score: 0 }
+      { label: "日常茶飯事。気づけば1〜2時間溶けている", score: 2 },
+      { label: "たまに脱線するが、締め切り前には戻れる", score: 1 },
+      { label: "計画通りに集中して一気に終わらせる", score: 0 }
     ]
   },
   {
-    text: "スマホの通知が鳴っていないのに「鳴った」と感じることは？",
+    text: "何もすることがない「完全な暇」な時間ができたら？",
     options: [
-      { label: "頻繁にある（幻聴・幻振動を感じる）", score: 3 },
-      { label: "ごくたまにある", score: 1 },
-      { label: "まったくない", score: 0 }
+      { label: "強烈なソワソワ感や不安を感じ、すぐに刺激を探す", score: 2 },
+      { label: "少し退屈だが、ゴロゴロ休むことができる", score: 1 },
+      { label: "思考を整理したり、リラックスして過ごせる", score: 0 }
     ]
   },
   {
-    text: "夜、布団に入ってから眠りにつくまでの行動は？",
+    text: "夜、ベッドに入ってから眠るまでの過ごし方は？",
     options: [
-      { label: "眠気が限界に来るまで画面をスクロールし続ける", score: 3 },
-      { label: "少しスマホを見てから置く", score: 1 },
-      { label: "スマホを手の届かない場所に置いてすぐ寝る", score: 0 }
+      { label: "眠気限界までスマホを握りしめて画面を見ている", score: 2 },
+      { label: "少しアラーム設定や連絡返信をしてから置く", score: 1 },
+      { label: "スマホは遠くに置き、すぐに目を閉じて眠る", score: 0 }
     ]
   }
 ];
@@ -65,7 +66,10 @@ const questionEl = document.getElementById("question-text");
 const optionsEl = document.getElementById("options-container");
 const progressEl = document.getElementById("progress");
 
-// 2. 質問の描画
+const introView = document.getElementById("intro-view");
+const quizView = document.getElementById("quiz-view");
+const startBtn = document.getElementById("start-btn");
+
 function renderQuestion() {
   const current = questions[currentIndex];
   progressEl.textContent = `質問 ${currentIndex + 1} / ${questions.length}`;
@@ -77,14 +81,13 @@ function renderQuestion() {
     btn.className = "option-btn";
     btn.textContent = opt.label;
     btn.addEventListener("click", () => {
-      btn.blur(); // フォーカスを解除して次の設問への青色引き継ぎを防止
+      btn.blur();
       handleAnswer(opt.score);
     });
     optionsEl.appendChild(btn);
   });
 }
 
-// 3. 回答処理・スコア判定
 function handleAnswer(score) {
   totalScore += score;
   currentIndex++;
@@ -92,36 +95,46 @@ function handleAnswer(score) {
   if (currentIndex < questions.length) {
     renderQuestion();
   } else {
-    // 7問・最大21点満点でのスコア分岐
-    let resultType = "C";
-    let targetPage = "result-c.html";
+    // スコア判定 (最大14点)
+    // 10点以上: 重度 (A)
+    // 5〜9点: 中程度 (B)
+    // 4点以下: 健全 (C)
+    let resultType = "c";
+    let resultName = "脳内クリーン健全タイプ";
 
-    if (totalScore >= 15) {
-      // 15点以上：重度（刺激中毒タイプ）
-      resultType = "A";
-      targetPage = "result-a.html";
-    } else if (totalScore >= 7) {
-      // 7〜14点：中程度（現代人標準・予備軍）
-      resultType = "B";
-      targetPage = "result-b.html";
+    if (totalScore >= 10) {
+      resultType = "a";
+      resultName = "重度のドパガキタイプ";
+    } else if (totalScore >= 5) {
+      resultType = "b";
+      resultName = "そこそこドパガキタイプ";
     }
-    // 6点以下はデフォルトのC（脳内クリーン健全タイプ）
 
-    // 診断結果をLocalStorageに保存
-    const resultSummary = {
+    // localStorage保存（マイページ機能対応）
+    const resultData = {
       testId: "dopagaki",
       testTitle: "ドパガキ度診断",
+      resultType: resultType.toUpperCase(),
+      resultName: resultName,
       score: totalScore,
-      maxScore: 21,
-      resultType: resultType,
+      maxScore: 14,
       completedAt: new Date().toISOString()
     };
-    localStorage.setItem("result_dopagaki", JSON.stringify(resultSummary));
+    localStorage.setItem("result_dopagaki", JSON.stringify(resultData));
 
-    // 結果ページへ遷移
-    window.location.href = targetPage;
+    // 結果ページへリダイレクト
+    window.location.href = `result-${resultType}.html`;
   }
 }
 
-// 初回実行
-renderQuestion();
+// 診断開始ボタンのイベント登録
+if (startBtn && introView && quizView) {
+  startBtn.addEventListener("click", () => {
+    introView.style.display = "none";
+    quizView.style.display = "block";
+    renderQuestion();
+  });
+} else {
+  // 説明画面がない場合の後方互換
+  renderQuestion();
+}
