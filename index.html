@@ -17,164 +17,102 @@
   <link rel="stylesheet" href="assets/common.css">
 
   <style>
-    /* トップページ用レイアウト調整（bodyの中央寄せを解除） */
-    body {
-      display: block !important;
-      min-height: 100vh;
-      padding: 40px 16px 60px !important;
-    }
-
-    .portal-container {
-      width: 100%;
-      max-width: 680px;
-      margin: 0 auto;
-    }
-
-    .portal-header {
-      text-align: center;
-      margin-bottom: 32px;
-    }
-
-    .portal-badge {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: #4f46e5;
-      background: #eef2ff;
-      padding: 4px 12px;
-      border-radius: 9999px;
-      letter-spacing: 0.05em;
-      margin-bottom: 12px;
-    }
-
-    .portal-title {
-      font-size: 1.75rem;
-      font-weight: 800;
-      color: #0f172a;
-      letter-spacing: -0.02em;
-      margin-bottom: 8px;
-    }
-
-    .portal-subtitle {
-      font-size: 0.95rem;
-      color: #64748b;
-      line-height: 1.5;
-    }
-
-    /* 診断一覧リスト */
-    .test-list {
+    /* トップページ専用の微調整 */
+    .portal-list {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
+      margin-top: 20px;
     }
-
-    .test-card {
+    .portal-item {
       display: block;
-      background: #ffffff;
+      background-color: #f8fafc;
       border: 1px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 24px 20px;
+      border-radius: 12px;
+      padding: 16px;
       text-decoration: none;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
       transition: all 0.2s ease;
     }
-
     @media (hover: hover) and (pointer: fine) {
-      .test-card:hover {
+      .portal-item:hover {
+        background-color: #eef2ff;
         border-color: #818cf8;
-        box-shadow: 0 8px 24px rgba(79, 70, 229, 0.08);
         transform: translateY(-2px);
       }
     }
-
-    .test-card-tag {
+    .portal-item-badge {
       display: inline-block;
       font-size: 0.7rem;
       font-weight: 700;
       color: #4f46e5;
-      background: #eef2ff;
-      padding: 2px 8px;
-      border-radius: 6px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
-
-    .test-card-title {
-      font-size: 1.15rem;
+    .portal-item-title {
+      font-size: 1.05rem;
       font-weight: 700;
       color: #0f172a;
       margin-bottom: 6px;
-      line-height: 1.4;
     }
-
-    .test-card-desc {
-      font-size: 0.88rem;
-      color: #475569;
-      line-height: 1.55;
-      margin-bottom: 16px;
+    .portal-item-desc {
+      font-size: 0.85rem;
+      color: #64748b;
+      line-height: 1.5;
+      margin-bottom: 10px;
     }
-
-    .test-card-meta {
-      display: flex;
-      gap: 16px;
-      font-size: 0.8rem;
+    .portal-item-meta {
+      font-size: 0.75rem;
       color: #94a3b8;
       font-weight: 600;
     }
-
-    .footer {
+    .portal-footer {
       text-align: center;
-      margin-top: 48px;
-      font-size: 0.8rem;
+      margin-top: 24px;
+      font-size: 0.78rem;
       color: #94a3b8;
     }
   </style>
 </head>
 <body>
-  <div class="portal-container">
-    <header class="portal-header">
-      <span class="portal-badge">PORTAL</span>
-      <h1 class="portal-title">Chimera Lab</h1>
-      <p class="portal-subtitle">自己理解・認知傾向・思考パターンを可視化する無料診断ツール集</p>
-    </header>
+  <main class="container">
+    <section id="quiz-card">
+      <div id="intro-view">
+        <span class="intro-badge">PORTAL</span>
+        <h1 class="intro-title">Chimera Lab</h1>
+        <p class="intro-desc" style="text-align: center;">
+          無意識の思考パターン、デジタル依存度、対人関係の傾向を可視化する診断ポータルサイトです。
+        </p>
 
-    <main class="test-list">
-      <!-- 診断1：ドパガキ度 -->
-      <a href="items/dopagaki/" class="test-card">
-        <span class="test-card-tag">LIFESTYLE</span>
-        <h2 class="test-card-title">ドパガキ度診断</h2>
-        <p class="test-card-desc">ショート動画やSNSの即時報酬に脳がどれくらい侵食されているかを客観的にチェックします。</p>
-        <div class="test-card-meta">
-          <span>設問数：全 10 問</span>
-          <span>目安：約 2 分</span>
+        <div class="portal-list">
+          <!-- 診断1 -->
+          <a href="items/dopagaki/" class="portal-item">
+            <span class="portal-item-badge">LIFESTYLE</span>
+            <div class="portal-item-title">ドパガキ度診断</div>
+            <div class="portal-item-desc">ショート動画やSNSの即時報酬に脳がどれくらい侵食されているかをチェック。</div>
+            <div class="portal-item-meta">全10問 / 約2分</div>
+          </a>
+
+          <!-- 診断2 -->
+          <a href="items/career-thinking/" class="portal-item">
+            <span class="portal-item-badge">CAREER</span>
+            <div class="portal-item-title">適職・思考特性診断</div>
+            <div class="portal-item-desc">問題解決のアプローチから、強みが最も生きるワークスタイルを分析。</div>
+            <div class="portal-item-meta">全10問 / 約3分</div>
+          </a>
+
+          <!-- 診断3 -->
+          <a href="items/love-style/" class="portal-item">
+            <span class="portal-item-badge">RELATIONSHIP</span>
+            <div class="portal-item-title">恋愛コミュニケーション傾向診断</div>
+            <div class="portal-item-desc">親しい人との心地よい距離感や無意識のコミュニケーション癖を判定。</div>
+            <div class="portal-item-meta">全7問 / 約1分</div>
+          </a>
         </div>
-      </a>
 
-      <!-- 診断2：適職・思考特性 -->
-      <a href="items/career-thinking/" class="test-card">
-        <span class="test-card-tag">CAREER</span>
-        <h2 class="test-card-title">適職・思考特性診断</h2>
-        <p class="test-card-desc">課題解決や仕事の進め方から、あなたの強みが最も発揮される働き方スタイルを分析します。</p>
-        <div class="test-card-meta">
-          <span>設問数：全 10 問</span>
-          <span>目安：約 3 分</span>
+        <div class="portal-footer">
+          &copy; Chimera Lab All Rights Reserved.
         </div>
-      </a>
-
-      <!-- 診断3：恋愛コミュニケーション傾向 -->
-      <a href="items/love-style/" class="test-card">
-        <span class="test-card-tag">RELATIONSHIP</span>
-        <h2 class="test-card-title">恋愛コミュニケーション傾向診断</h2>
-        <p class="test-card-desc">親しい人との心地よい距離感や、無意識に出てしまうコミュニケーションの癖を判定します。</p>
-        <div class="test-card-meta">
-          <span>設問数：全 7 問</span>
-          <span>目安：約 1 分</span>
-        </div>
-      </a>
-    </main>
-
-    <footer class="footer">
-      <p>&copy; Chimera Lab All Rights Reserved.</p>
-    </footer>
-  </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
