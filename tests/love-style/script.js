@@ -150,3 +150,17 @@ if (startBtn && introView && quizView) {
   // 説明画面がない場合の後方互換
   renderQuestion();
 }
+
+// --- 診断開始ボタンの制御 ---
+if (startBtn && introView && quizView) {
+  startBtn.addEventListener("click", () => {
+    shuffleArray(questions); // ★ ここで設問順をランダムにシャッフル！
+    introView.style.display = "none";
+    quizView.style.display = "block";
+    renderQuestion();
+  });
+} else {
+  // 説明画面がない場合の後方互換
+  shuffleArray(questions);
+  renderQuestion();
+}
