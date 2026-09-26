@@ -85,6 +85,9 @@ function renderQuestion() {
   progressEl.textContent = `質問 ${currentIndex + 1} / ${questions.length}`;
   questionEl.textContent = current.text;
   optionsEl.innerHTML = "";
+  
+  // 選択肢もランダムにしたい場合はここを有効化
+  shuffleArray(current.options);
 
   current.options.forEach(opt => {
     const btn = document.createElement("button");
