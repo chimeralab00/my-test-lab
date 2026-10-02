@@ -2,18 +2,18 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7MNC1PLLZ7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7MNC1PLLZ7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  // Tests 単体統計用
-  gtag('config', 'G-7MNC1PLLZ7');
-  // 全体総合統計用
-  gtag('config', 'G-FW7R85YTVX');
-</script>
+    // Tests 単体統計用
+    gtag('config', 'G-7MNC1PLLZ7');
+    // 全体総合統計用
+    gtag('config', 'G-FW7R85YTVX');
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chimera Test Lab｜自己理解・思考特性 診断ポータル</title>
   <meta name="description" content="無意識の思考パターン、デジタル依存度、対人関係の傾向を可視化する無料の自己診断ポータルサイト。">
@@ -94,31 +94,8 @@
           無意識の思考パターン、デジタル依存度、対人関係の傾向を可視化する診断ポータルサイトです。
         </p>
 
-        <div class="portal-list">
-          <!-- 診断1 -->
-          <a href="items/dopagaki/" class="portal-item">
-            <span class="portal-item-badge">LIFESTYLE</span>
-            <div class="portal-item-title">ドパガキ度診断</div>
-            <div class="portal-item-desc">ショート動画やSNSの即時報酬に脳がどれくらい侵食されているかをチェック。</div>
-            <div class="portal-item-meta">全10問 / 約2分</div>
-          </a>
-
-          <!-- 診断2 -->
-          <a href="items/career-thinking/" class="portal-item">
-            <span class="portal-item-badge">CAREER</span>
-            <div class="portal-item-title">適職・思考特性診断</div>
-            <div class="portal-item-desc">問題解決のアプローチから、強みが最も生きるワークスタイルを分析。</div>
-            <div class="portal-item-meta">全10問 / 約3分</div>
-          </a>
-
-          <!-- 診断3 -->
-          <a href="items/love-style/" class="portal-item">
-            <span class="portal-item-badge">RELATIONSHIP</span>
-            <div class="portal-item-title">恋愛コミュニケーション傾向診断</div>
-            <div class="portal-item-desc">親しい人との心地よい距離感や無意識のコミュニケーション癖を判定。</div>
-            <div class="portal-item-meta">全7問 / 約1分</div>
-          </a>
-        </div>
+        <!-- items.json から動的に展開 -->
+        <div id="portal-list" class="portal-list"></div>
 
         <div class="portal-footer">
           &copy; Hidden Chimera All Rights Reserved.
@@ -126,5 +103,37 @@
       </div>
     </section>
   </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const container = document.getElementById('portal-list');
+
+      try {
+        const response = await fetch('./items.json');
+        if (!response.ok) throw new Error('items.json の取得に失敗しました');
+
+        const items = await response.json();
+
+        container.innerHTML = items.map(item => {
+          // badge が空文字でない場合のみ表示
+          const badgeHtml = item.badge 
+            ? `<span class="portal-item-badge">${item.badge}</span>` 
+            : '';
+
+          return `
+            <a href="items/${item.id}/" class="portal-item">
+              ${badgeHtml}
+              <div class="portal-item-title">${item.title}</div>
+              <div class="portal-item-desc">${item.description}</div>
+            </a>
+          `;
+        }).join('');
+
+      } catch (error) {
+        console.error(error);
+        container.innerHTML = '<p style="color: #94a3b8; text-align: center; font-size: 0.85rem;">診断一覧の読み込みに失敗しました。</p>';
+      }
+    });
+  </script>
 </body>
 </html>
