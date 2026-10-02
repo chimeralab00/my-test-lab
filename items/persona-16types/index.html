@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7MNC1PLLZ7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7MNC1PLLZ7');
+    gtag('config', 'G-FW7R85YTVX');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ペルソナ16タイプ他己診断｜Chimera Test Lab</title>
+  <meta name="description" content="友達・恋人・同僚から自分はどう見えている？人間関係ごとの「社会的仮面（ペルソナ）」を16タイプで可視化する他己分析ツール。">
+
+  <!-- OGP基本設定 -->
+  <meta property="og:title" content="ペルソナ16タイプ他己診断｜Chimera Test Lab">
+  <meta property="og:description" content="周りの人から自分はどう見えている？関係性ごとの仮面（ペルソナ）を16タイプで暴く他己分析ツール。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tests.hiddenchimera.com/items/persona-16types/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- 既存共通CSS ＆ 専用CSS -->
+  <link rel="stylesheet" href="../../assets/common.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <!-- トースト通知（重複防止や登録完了のメッセージ） -->
+    <div id="toast" class="toast" style="display: none;"></div>
+
+    <section id="quiz-card">
+      <div id="test-nav-header"></div>
+
+      <!-- ① 初期状態：URL未発行のとき -->
+      <div id="setup-view" style="display: none;">
+        <span class="intro-badge">PERSONA 16 TYPES</span>
+        <h1 class="intro-title">ペルソナ16タイプ他己診断</h1>
+        <p class="intro-desc">
+          人は相手（友達、恋人、職場、先輩、後輩）によって見せる顔が無意識に変わります。<br>
+          周りの人にこの診断を解いてもらい、客観的に映る「あなたの社会的仮面」を集計・分析しましょう。
+        </p>
+
+        <div class="input-group">
+          <label for="user-name-input" class="input-label">あなたのニックネーム</label>
+          <input type="text" id="user-name-input" class="text-input" placeholder="例: キメラ" maxlength="15">
+        </div>
+
+        <button id="generate-btn" class="start-btn-primary">回答募集URLを発行する</button>
+      </div>
+
+      <!-- ② URL発行済み ＆ ダッシュボード画面 -->
+      <div id="dashboard-view" style="display: none;">
+        <div class="dashboard-header">
+          <span class="intro-badge">DASHBOARD</span>
+          <h1 class="dashboard-title"><span id="target-user-name"></span> さんの他己分析</h1>
+        </div>
+
+        <!-- シェア用URLボックス -->
+        <div class="share-box">
+          <p class="share-box-label">友達や恋人に送る回答用URL</p>
+          <div class="share-url-row">
+            <input type="text" id="share-url-input" class="share-url-input" readonly>
+            <button id="copy-url-btn" class="copy-btn">コピー</button>
+          </div>
+          <p class="share-hint">※LINEやDMで送って答えてもらい、結果URLを送り返してもらってください。</p>
+        </div>
+
+        <!-- データ未集計時のプレースホルダー -->
+        <div id="empty-state" class="empty-state" style="display: none;">
+          <p class="empty-title">まだ回答が届いていません</p>
+          <p class="empty-desc">上のURLを友達や同僚にシェアして、あなたの普段の印象を回答してもらいましょう！</p>
+        </div>
+
+        <!-- データ集計表示エリア -->
+        <div id="stats-area" style="display: none;">
+          <!-- 関係性フィルタータブ -->
+          <div class="relation-tabs" id="relation-tabs">
+            <button class="tab-btn active" data-rel="all">全体 (<span id="count-all">0</span>)</button>
+            <button class="tab-btn" data-rel="friend">友人 (<span id="count-friend">0</span>)</button>
+            <button class="tab-btn" data-rel="partner">恋人 (<span id="count-partner">0</span>)</button>
+            <button class="tab-btn" data-rel="colleague">同僚 (<span id="count-colleague">0</span>)</button>
+            <button class="tab-btn" data-rel="senior">先輩 (<span id="count-senior">0</span>)</button>
+            <button class="tab-btn" data-rel="junior">後輩 (<span id="count-junior">0</span>)</button>
+            <button class="tab-btn" data-rel="family">家族 (<span id="count-family">0</span>)</button>
+          </div>
+
+          <!-- 総合判定カード -->
+          <div class="result-summary-card">
+            <p class="summary-sub" id="current-filter-label">全体の他己評価タイプ</p>
+            <h2 class="summary-type" id="dominant-type">----</h2>
+            <p class="summary-desc" id="type-description">回答データを集計しています...</p>
+          </div>
+
+          <!-- 4軸バランススライダー -->
+          <div class="axes-container">
+            <div class="axis-row">
+              <div class="axis-labels">
+                <span class="left-trait">外向 (E)</span>
+                <span class="axis-val" id="val-ei">50% : 50%</span>
+                <span class="right-trait">内向 (I)</span>
+              </div>
+              <div class="axis-bar-wrap">
+                <div class="axis-indicator" id="bar-ei" style="left: 50%;"></div>
+              </div>
+            </div>
+
+            <div class="axis-row">
+              <div class="axis-labels">
+                <span class="left-trait">感覚 (S)</span>
+                <span class="axis-val" id="val-sn">50% : 50%</span>
+                <span class="right-trait">直観 (N)</span>
+              </div>
+              <div class="axis-bar-wrap">
+                <div class="axis-indicator" id="bar-sn" style="left: 50%;"></div>
+              </div>
+            </div>
+
+            <div class="axis-row">
+              <div class="axis-labels">
+                <span class="left-trait">思考 (T)</span>
+                <span class="axis-val" id="val-tf">50% : 50%</span>
+                <span class="right-trait">感情 (F)</span>
+              </div>
+              <div class="axis-bar-wrap">
+                <div class="axis-indicator" id="bar-tf" style="left: 50%;"></div>
+              </div>
+            </div>
+
+            <div class="axis-row">
+              <div class="axis-labels">
+                <span class="left-trait">判断 (J)</span>
+                <span class="axis-val" id="val-jp">50% : 50%</span>
+                <span class="right-trait">知覚 (P)</span>
+              </div>
+              <div class="axis-bar-wrap">
+                <div class="axis-indicator" id="bar-jp" style="left: 50%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 届いた回答一覧 & 削除管理セクション -->
+        <div class="log-section">
+          <div class="log-header">
+            <h3 class="log-title">届いた回答履歴</h3>
+            <button id="delete-selected-btn" class="delete-btn" disabled>選択した回答を削除</button>
+          </div>
+          <div id="response-list" class="response-list">
+            <!-- 回答カードが動的に挿入される -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 免責事項・フッター -->
+      <footer class="tool-footer">
+        <p class="disclaimer">※本ツールは非公式の性格分析ツールであり、Myers-Briggs Type Indicator（MBTI）および NERIS Analytics Limited（16Personalities）とは一切関係ありません。</p>
+        <div class="nav-links-row" style="margin-top: 14px;">
+          <a href="../../" class="main-link">← 他の診断を見る（トップへ）</a>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <script src="../../assets/common.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
