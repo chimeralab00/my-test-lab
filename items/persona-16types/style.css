@@ -328,6 +328,7 @@
 .rel-senior { background: #fef3c7; color: #92400e; }
 .rel-junior { background: #dcfce7; color: #166534; }
 .rel-family { background: #ffedd5; color: #9a3412; }
+.rel-other { background: #f1f5f9; color: #475569; } /* ★ 修正: 「その他」用バッジを追加 */
 
 .response-type {
   font-weight: 800;
@@ -350,4 +351,40 @@
   font-size: 0.72rem;
   color: #94a3b8;
   line-height: 1.4;
+}
+
+/* --- 回答者：関係性選択グリッド --- */
+.relation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.rel-select-btn {
+  background-color: #f8fafc;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+/* ★ 修正: 奇数個目の「その他」ボタンを横いっぱいにフィットさせる */
+.rel-select-btn[data-rel="other"] {
+  grid-column: span 2;
+}
+
+.rel-select-btn:hover {
+  background-color: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+.rel-select-btn.active {
+  background-color: #e0e7ff;
+  border-color: #4f46e5;
+  color: #3730a3;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
 }
