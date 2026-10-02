@@ -1,0 +1,353 @@
+/* --- 出題者初期設定フォーム --- */
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.text-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 1rem;
+  color: #0f172a;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.text-input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+/* --- シェア用URLボックス --- */
+.share-box {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.share-box-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #475569;
+  margin-bottom: 8px;
+}
+
+.share-url-row {
+  display: flex;
+  gap: 8px;
+}
+
+.share-url-input {
+  flex: 1;
+  padding: 8px 10px;
+  font-size: 0.85rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #64748b;
+  outline: none;
+}
+
+.copy-btn {
+  background: #4f46e5;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.copy-btn:active {
+  background: #4338ca;
+}
+
+.share-hint {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+/* --- トースト通知 --- */
+.toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0f172a;
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 200;
+  animation: fadeInOut 2.5s ease forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translate(-50%, -10px); }
+  15% { opacity: 1; transform: translate(-50%, 0); }
+  85% { opacity: 1; transform: translate(-50%, 0); }
+  100% { opacity: 0; transform: translate(-50%, -10px); }
+}
+
+/* --- ダッシュボード見出し --- */
+.dashboard-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 16px;
+}
+
+/* --- 空状態 --- */
+.empty-state {
+  padding: 36px 16px;
+  background: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.empty-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.empty-desc {
+  font-size: 0.85rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* --- 関係性タブ --- */
+.relation-tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  scrollbar-width: none;
+}
+
+.relation-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-btn {
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #64748b;
+  border-radius: 9999px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tab-btn.active {
+  background: #4f46e5;
+  color: #ffffff;
+  border-color: #4f46e5;
+}
+
+/* --- 総合判定カード --- */
+.result-summary-card {
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  border: 1px solid #c7d2fe;
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.summary-sub {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #4f46e5;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.summary-type {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #1e1b4b;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.summary-desc {
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.5;
+}
+
+/* --- 4軸スライダー --- */
+.axes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.axis-row {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 10px;
+  padding: 10px 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.axis-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.left-trait { color: #4f46e5; }
+.right-trait { color: #0ea5e9; }
+.axis-val { color: #64748b; font-size: 0.75rem; }
+
+.axis-bar-wrap {
+  position: relative;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 9999px;
+}
+
+.axis-indicator {
+  position: absolute;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  background: #4f46e5;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: left 0.3s ease;
+}
+
+/* --- 回答履歴・削除管理 --- */
+.log-section {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 20px;
+  text-align: left;
+}
+
+.log-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.log-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.delete-btn {
+  background: #fee2e2;
+  color: #b91c1c;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.delete-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.response-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.response-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.85rem;
+}
+
+.response-info-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.badge-rel {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: #e2e8f0;
+  color: #334155;
+}
+
+/* 関係性別のバッジ色分け */
+.rel-friend { background: #e0e7ff; color: #3730a3; }
+.rel-partner { background: #fce7f3; color: #9d174d; }
+.rel-colleague { background: #e0f2fe; color: #075985; }
+.rel-senior { background: #fef3c7; color: #92400e; }
+.rel-junior { background: #dcfce7; color: #166534; }
+.rel-family { background: #ffedd5; color: #9a3412; }
+
+.response-type {
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.response-date {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+/* フッター */
+.tool-footer {
+  margin-top: 32px;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 16px;
+}
+
+.disclaimer {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  line-height: 1.4;
+}
